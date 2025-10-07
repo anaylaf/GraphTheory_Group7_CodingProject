@@ -252,7 +252,8 @@ int main() {
 
 **C. Input-Output Samples**
 
-<img width="682" height="330" alt="image" src="https://github.com/user-attachments/assets/0c48ec3a-72cf-4f0c-aeb6-4c7b0c7f4835" />
+<img width="682" height="329" alt="Screenshot 2025-10-07 195406" src="https://github.com/user-attachments/assets/f0ce3540-6d09-47be-b395-f2b29444bba5" />
+
 
 
     
