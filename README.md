@@ -241,17 +241,18 @@ int main() {
     for (int id = 0; id < e; ++id)
     cost += edges[id].w * mult[id];
     ```
-    - The total cost is the sum of each edge’s weight times how many times it is used (including duplicates added earlier).
+    - Sum of each edge’s weight times how many times it is used (including duplicates added earlier).
 
 9) Print results
     ```c
     cout << "Cost: " << cost << "\n";
     cout << "Route: " << route;
     ```
-    - Correct, just note that `route` prints edge IDs in traversal order, not vertex numbers.
+    - Give the result of final cost and route. 
 
 **C. Input-Output Samples**
 
-<img width="551" height="338" alt="Screenshot 2025-10-07 194627" src="https://github.com/user-attachments/assets/f798457b-2ba3-46e6-a0e8-561f3ccb7a6d" />
+<img width="682" height="330" alt="image" src="https://github.com/user-attachments/assets/0c48ec3a-72cf-4f0c-aeb6-4c7b0c7f4835" />
+
 
     
