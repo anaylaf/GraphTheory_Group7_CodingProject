@@ -252,22 +252,6 @@ int main() {
 
 **C. Input-Output Samples**
 
-**Input**
-```
-4
-5
-0 1 2 3
-1 2 3 4
-2 3 4 5
-3 4 1 2
-4 1 3 1
-1
-```
-
-**Output**
-```
-Cost: 16
-Route: 0, 1, 2, 3, 4, 4
-```
+<img width="551" height="338" alt="Screenshot 2025-10-07 194627" src="https://github.com/user-attachments/assets/f798457b-2ba3-46e6-a0e8-561f3ccb7a6d" />
 
     
