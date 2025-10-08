@@ -194,6 +194,8 @@ Output
 Cost: 17
 Route: 0, 1, 3
 ```
+<img width="460" height="173" alt="Screenshot 2025-10-08 at 10 31 03" src="https://github.com/user-attachments/assets/d80d05a3-1a2d-40fc-a413-d0fcc4e08b56" />
+
 
 ## 2. Chinese Postman Problem
 
