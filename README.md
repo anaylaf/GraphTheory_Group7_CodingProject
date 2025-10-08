@@ -447,6 +447,22 @@ int main() {
     - Give the result of final cost and route. 
 
 **C. Input-Output Samples**
+Input
+```
+3 
+4 
+0 1 2 10 
+1 2 3 5
+2 3 1 7 
+3 3 1 2 
+1
+```
+
+Output
+```
+Cost: 17
+Route: 0, 1, 3
+```
 
 <img width="682" height="329" alt="Screenshot 2025-10-07 195406" src="https://github.com/user-attachments/assets/f0ce3540-6d09-47be-b395-f2b29444bba5" />
 
