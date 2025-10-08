@@ -13,7 +13,10 @@
 ## 1. Travelling Salesman Problem  
 **A. Code**
 ```c
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <limits>
 using namespace std;
 
 int main() {
