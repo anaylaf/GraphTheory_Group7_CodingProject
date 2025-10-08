@@ -8,7 +8,9 @@
 | Almira Nayla Felisitha  | 5025241014 | IUP |
 | Adelia Tanalina Yumna  | 5025241078 | IUP |
 
-## Travelling Salesman Problem  
+
+
+## 1. Travelling Salesman Problem  
 **A. Code**
 ```c
 #include <bits/stdc++.h>
@@ -193,7 +195,7 @@ Cost: 17
 Route: 0, 1, 3
 ```
 
-## Chinese Postman Problem
+## 2. Chinese Postman Problem
 
 **A. Code**
 ```c
