@@ -1,6 +1,6 @@
 # Graph Theory - Coding Project
 
-**Group 7**
+**Group 7:**
 | Name | NRP | Class |
 | ---- | --- | ----- |
 | Nuha Usama Okbah | 5025241005 | IUP |
