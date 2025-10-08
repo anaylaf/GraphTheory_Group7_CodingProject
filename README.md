@@ -1,4 +1,190 @@
 # GraphTheory_Group7_CodingProject
+
+##Travelling Salesman Problem
+**A. Code**
+```c
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int n, e;
+    cin >> n >> e;
+
+    vector<vector<int>> dist(n, vector<int>(n, 1e9));
+    vector<vector<int>> edgeID(n, vector<int>(n, -1));
+
+    for (int i = 0; i < e; i++) {
+        int id, u, v, w;
+        cin >> id >> u >> v >> w;
+        u--; v--;
+        if (w < dist[u][v]) {  
+            dist[u][v] = dist[v][u] = w;
+            edgeID[u][v] = edgeID[v][u] = id;
+        }
+    }
+
+    int start;
+    cin >> start;
+    start--;
+
+    vector<int> nodes;
+    for (int i = 0; i < n; i++) {
+        if (i != start) nodes.push_back(i);
+    }
+
+    int bestCost = 1e9;
+    vector<int> bestEdges;
+
+    do {
+        int cost = 0;
+        int curr = start;
+        vector<int> edges;
+
+        for (int nxt : nodes) {
+            cost += dist[curr][nxt];
+            edges.push_back(edgeID[curr][nxt]);
+            curr = nxt;
+        }
+
+        cost += dist[curr][start];
+        edges.push_back(edgeID[curr][start]);
+
+        if (cost < bestCost) {
+            bestCost = cost;
+            bestEdges = edges;
+        }
+
+    } while (next_permutation(nodes.begin(), nodes.end()));
+
+    cout << "Cost: " << bestCost << "\nRoute: ";
+    for (int i = 0; i < (int)bestEdges.size(); i++) {
+        cout << bestEdges[i];
+        if (i != (int)bestEdges.size() - 1) cout << ", ";
+    }
+    cout << "\n";
+}
+```
+**B. Explanation**
+
+1) Read sizes and prepare matrices
+```
+int n, e;
+cin >> n >> e;
+
+vector<vector<int>> dist(n, vector<int>(n, 1e9));
+vector<vector<int>> edgeID(n, vector<int>(n, -1));
+
+```
+- n = number of vertices, e = number of edges.
+- dist is an n×n matrix initialized to a large value (1e9) to mean “no direct edge.”
+- edgeID stores the input ID of the chosen edge between any pair
+
+2) Load edges
+```c
+for (int i = 0; i < e; i++) {
+    int id, u, v, w;
+    cin >> id >> u >> v >> w;
+    u--; v--;
+    if (w < dist[u][v]) {  
+        dist[u][v] = dist[v][u] = w;
+        edgeID[u][v] = edgeID[v][u] = id;
+    }
+}
+
+``` 
+- Input gives id, endpoints u and v (1-based), and weight w. Convert to 0-based.
+- If multiple edges connect the same pair, only the smallest weight is kept in dist, and its id is recorded in edgeID.
+- Graph is undirected, so assign both [u][v] and [v][u].
+
+3) Read the fixed start city
+```c
+int start;
+cin >> start;
+start--;
+
+```
+- The tour must start (and later return) at this vertex.
+- Convert to 0-based to match matrix indices.
+
+4) Build the list of cities to permute
+```c
+vector<int> nodes;
+for (int i = 0; i < n; i++) {
+    if (i != start) nodes.push_back(i);
+}
+```
+- Generate all permutations of the non-start vertices, forming Hamiltonian tours that start at start, visit each other city exactly once, then return to start.
+
+   
+5) Track the best tour found so far
+```c
+int bestCost = 1e9;
+vector<int> bestEdges;
+
+```
+- bestCost holds the minimum total cost discovered.
+- bestEdges stores the sequence of edge IDs along that best tour (including the final edge back to start).
+
+6) Enumerate all permutations and evaluate each tour
+```c
+do {
+    int cost = 0;
+    int curr = start;
+    vector<int> edges;
+
+    for (int nxt : nodes) {
+        cost += dist[curr][nxt];
+        edges.push_back(edgeID[curr][nxt]);
+        curr = nxt;
+    }
+
+    cost += dist[curr][start];
+    edges.push_back(edgeID[curr][start]);
+
+    if (cost < bestCost) {
+        bestCost = cost;
+        bestEdges = edges;
+    }
+
+} while (next_permutation(nodes.begin(), nodes.end()));
+
+```
+- next_permutation iterates through every ordering of nodes
+- For the current ordering, simulate the path 
+- Sum weights from dist and record each traversed edge’s ID from edgeID.
+- After closing the cycle (return to start), compare the total with bestCost
+
+7) Print the minimal cost and the chosen edge IDs in order
+```c
+cout << "Cost: " << bestCost << "\nRoute: ";
+for (int i = 0; i < (int)bestEdges.size(); i++) {
+    cout << bestEdges[i];
+    if (i != (int)bestEdges.size() - 1) cout << ", ";
+}
+cout << "\n";
+```
+- Print the minimum tour cost and the comma-separated list of edge IDs along that tour, including the final return edge
+
+
+**C. Input-Output Samples**
+
+Input
+```
+3 
+4 
+0 1 2 10 
+1 2 3 5
+2 3 1 7 
+3 3 1 2 
+1
+```
+
+Output
+```
+Cost: 17
+Route: 0, 1, 3
+```
+
 ## Chinese Postman Problem
 
 **A. Code**
